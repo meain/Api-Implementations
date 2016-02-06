@@ -1,5 +1,8 @@
 '''
 This is used to get comments of a youtube video by providing the video id
+
+Install this for it to work:
+pip install --upgrade google-api-python-client
 '''
 
 from apiclient.discovery import build
