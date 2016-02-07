@@ -38,12 +38,14 @@ def get_comment_reply(parent_id, max_results = 10):
   ).execute()
 	return results
 
+def get_parent_id(comment):
+	return comment["snippet"]["topLevelComment"]["id"]
+
 '''
 Display functions - just for debuging and to show the usage
 '''
 
 def display_comment_parent(item):
-	print "\n\n~~~~~~~~~~~~"
 	#author name (parent)
 	print item["snippet"]["topLevelComment"]["snippet"]["authorDisplayName"] + " :"
 	#author comment (parent)
@@ -60,8 +62,9 @@ def display_comment_repy(comment_querry_result):
 vid = ''	#id of the youtube video
 res_parent = get_youtube_comments(vid)
 for items in res_parent["items"]:
+	print "\n\n~~~~~~~~~~~~"
 	display_comment_parent(items)
-	parent_id = items["snippet"]["topLevelComment"]["id"]
+	parent_id = get_parent_id(items)
 	res_child = get_comment_reply(parent_id)
 	if res_child:
 		display_comment_repy(res_child)
