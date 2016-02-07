@@ -18,6 +18,6 @@ def get_subtitle_converstions(srt_file):
 	return conv
 
 #Output part
-res = get_subtitle_converstions("Cypher.2002.720p.BrRip.x264.bitloks.YIFY.srt")
+res = get_subtitle_converstions("")
 for cv in res:
 	print cv
