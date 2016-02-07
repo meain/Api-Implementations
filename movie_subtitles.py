@@ -2,16 +2,22 @@
 This is used to extract conversation only form an srt file
 It uses regex to extract the text portion
 '''
-import re   
+import re
 
-f = file("movie srt file")
-# Parse the file content
-content = f.read()
-# Find all result in content
-# The first big (__) retrieve the timing, \s+ match all timing in between,
-# The (.+) means retrieve any text content after that.
-result = re.findall("(\d+:\d+:\d+,\d+ --> \d+:\d+:\d+,\d+)\s+(.+)", content)
+def get_subtitle_converstions(srt_file):
+	f = file(srt_file)
+	# Parse the file content
+	content = f.read()
+	# Find all result in content
+	# The first big (__) retrieve the timing, \s+ match all timing in between,
+	# The (.+) means retrieve any text content after that.
+	result = re.findall("(\d+:\d+:\d+,\d+ --> \d+:\d+:\d+,\d+)\s+(.+)", content)
+	conv = []	#initalize as list
+	for item in result:
+		conv.append(item[1])
+	return conv
 
-#Printing the subtitle actual text portion only 
-for item in result:
-	print item[1] + "\n" #text (item[0] will be the time)
+#Output part
+res = get_subtitle_converstions("Cypher.2002.720p.BrRip.x264.bitloks.YIFY.srt")
+for cv in res:
+	print cv
