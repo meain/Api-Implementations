@@ -18,6 +18,6 @@ def get_subtitle_converstions(srt_file):
 	return conv
 
 #Output part
-res = get_subtitle_converstions("")
+res = get_subtitle_converstions("movie_name.srt")	#Give the name of the srt file here
 for cv in res:
 	print cv
