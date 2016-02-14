@@ -50,7 +50,7 @@ def get_lines_with_exper(file_to_check, exper):
 		for line in f:
 			line_number = line_number + 1
 			if exper in line:
-				print  prev_prev_prev_line + prev_prev_line + prev_line + bcolors.WARNING + str(line_number) + bcolors.OKGREEN + line + bcolors.ENDC + bcolors.BOLD +"\n\t\t******\n" + bcolors.ENDC
+				print   "   " + prev_prev_prev_line + "   " + prev_prev_line + "   " + prev_line + bcolors.WARNING + "(" + str(line_number) + ") " + bcolors.OKGREEN + line + bcolors.ENDC + bcolors.BOLD +"\n\t\t******\n" + bcolors.ENDC
 			else:
 				prev_prev_prev_line = prev_prev_line
 				prev_prev_line = prev_line
