@@ -1,6 +1,6 @@
 import urllib2
 
-api_key = "\"your-api-key\""
+api_key = "\"your api key here\""
 querry_base = '{"api_key" : ' + api_key +',"fields" : [ "name", "location", "contact" ],'
 url = 'https://api.locu.com/v2/venue/search'
 

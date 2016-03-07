@@ -1,9 +1,11 @@
 import urllib
 from bs4 import BeautifulStoneSoup, BeautifulSoup #import beautifulsoup4 #Extra dependency (install it using pip) (used for parsing a single tag and also to encode the string to unicode format)
 import cgi
+
 # call = urllib.urlopen("https://docs.python.org/2/library/urllib.html")
 # data = call.read()
 # print data
+
 api_key = "api_key" #Wolfram alpha calls them appID
 
 # def HTMLEntitiesToUnicode(text): # Uses beautifulsoup4
