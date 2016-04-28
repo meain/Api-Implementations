@@ -6,7 +6,7 @@ import cgi
 # data = call.read()
 # print data
 
-api_key = "api_key" #Wolfram alpha calls them appID
+api_key = "" #Wolfram alpha calls them appID
 
 # def HTMLEntitiesToUnicode(text): # Uses beautifulsoup4
     # """Converts HTML entities to unicode.  For example '&amp;' becomes '&'."""
