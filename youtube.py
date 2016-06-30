@@ -56,34 +56,35 @@ def get_comment_reply(parent_id, max_results = 10):
         reply_list.append(comment_reply)
     return reply_list
 
+def main():
+    '''
+    Display functions - just for debuging and to show the usage
+    '''
+
+    def display_comment_parent(item):
+        #author name (parent)
+        print get_parent_comment(item)['name'] + " :"
+        #author comment (parent)
+        print get_parent_comment(item)['comment']
+
+    def display_comment_repy(comment_replies):
+        for items in comment_replies:
+            print "\t-----Reply------"
+            print "\t" + items["name"]
+            print "\t" + items["comment"]
 
 
+    # Get to display comments of a video by giving the videoId(silly google, they dont have python naming scheme)
+    vid = 'jNQXAC9IVRw'	#id of the youtube video
+    res_parent = get_youtube_comments(vid, 100)
+    for items in res_parent["items"]:
+        print "\n\n~~~~~~~~~~~~"
+        display_comment_parent(items)
+        parent_id = get_parent_id(items)
+        res_child = get_comment_reply(parent_id)
+        if res_child:
+            display_comment_repy(res_child)
 
-'''
--------------------------DEBUG----------------------------
-Display functions - just for debuging and to show the usage
-'''
+if __name__ == '__main__':
+    main()
 
-def display_comment_parent(item):
-    #author name (parent)
-    print get_parent_comment(item)['name'] + " :"
-    #author comment (parent)
-    print get_parent_comment(item)['comment']
-
-def display_comment_repy(comment_replies):
-    for items in comment_replies:
-        print "\t-----Reply------"
-        print "\t" + items["name"]
-        print "\t" + items["comment"]
-
-
-# Get to display comments of a video by giving the videoId(silly google, they dont have python naming scheme)
-vid = 'jNQXAC9IVRw'	#id of the youtube video
-res_parent = get_youtube_comments(vid, 100)
-for items in res_parent["items"]:
-    print "\n\n~~~~~~~~~~~~"
-    display_comment_parent(items)
-    parent_id = get_parent_id(items)
-    res_child = get_comment_reply(parent_id)
-    if res_child:
-        display_comment_repy(res_child)
