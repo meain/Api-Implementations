@@ -1,5 +1,6 @@
 from apiclient.discovery import build
 
+
 def get_image(query):
     service = build("customsearch", "v1",
                developerKey="AIzaSyCx1ojOp7vEmfuX3FxvRjx4_EZGGMCvyX8")
